@@ -21,7 +21,16 @@ $(document).ready(function () {
     console.log(falseTime);
 
     function createTimeBlocks() {
-        for (let h = 9; h < 18; h++) {
+        var timeBlockText = ["9AM",
+        "10AM",
+        "11AM",
+        "12PM",
+        "1PM",
+        "2PM",
+        "3PM",
+        "4PM",
+        "5PM"]
+        for (let h = 0; h < 9; h++) {
             // creates 9 rows inside parent container
             var $newRow = $("<div>");
             $newRow.attr("class", "row time-block")
@@ -32,7 +41,7 @@ $(document).ready(function () {
             var $newHour = $("<div>");
             $newHour.attr("class", "col-1 hour");
             
-           // $newHour.text(h + "AM");
+            $newHour.text(timeBlockText[h]);
             $newRow.append($newHour);
 
 
