@@ -8,15 +8,26 @@ $(document).ready(function () {
     day.append(today);
 
     // takes the current time, which is what the app will run off of
-    var currentTime = moment().format('LT'); 
+    var currentTime = moment().format('HH'); 
     console.log(currentTime);
 
     // creates a FIXED time which I can use to build the app
-    var fixedTime = moment('1:31 PM', 'hh:mm A');
+    var fixedTime = moment('13', 'HH');
     console.log(fixedTime._i);
 
     // creates a FALSE but MOVING time which I can use to test the app
-    var falseTime = moment().subtract(6, 'hours').format('hh:mm A')
+    var falseTime = moment().subtract(6, 'hours').format('HH')
     console.log(falseTime);
+
+    function checkTime(time) {
+        var nineAM = $("#9");
+
+        var getBlockHours = document.body.children[1].children[0].children[1].id;
+        nineAM.attr("class","col-10 description present");
+        console.log(getBlockHours);
+
+    }
+
+    checkTime(fixedTime._i);
 
 });
