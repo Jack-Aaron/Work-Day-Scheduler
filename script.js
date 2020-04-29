@@ -22,10 +22,19 @@ $(document).ready(function () {
 
     function createTimeBlocks() {
         for (let h = 9; h < 18; h++) {
+            // creates 9 rows inside parent container
             var $newRow = $("<div>");
             $newRow.attr("class", "row time-block")
            // $newRow.attr("data-hour", h);
             $(".container").append($newRow);
+
+            // creates 9 size-1 columns showing the hour inside parent row
+            var $newHour = $("<div>");
+            $newHour.attr("class", "col-1 hour");
+            
+           // $newHour.text(h + "AM");
+            $newRow.append($newHour);
+
 
         }
     }
