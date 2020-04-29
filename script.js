@@ -13,14 +13,14 @@ $(document).ready(function () {
 
     // creates a FIXED time which I can use to build the app
     var fixedTime = moment('13', 'HH');
-    fixedTime = fixedTime._i;
+    fixedTime = parseInt(fixedTime._i);
     console.log(fixedTime);
 
     // creates a FALSE but MOVING time which I can use to test the app
     var falseTime = moment().subtract(6, 'hours').format('HH')
     console.log(falseTime);
 
-    function createTimeBlocks() {
+    function createTimeBlocks(time) {
         for (let h = 9; h < 18; h++) {
             // creates 9 rows inside parent container
             var $newRow = $("<div>");
@@ -42,7 +42,13 @@ $(document).ready(function () {
 
             // creates 9 textareas inside parent row
             var $newTextArea = $("<textarea>");
-            $newTextArea.attr("class", "col-10 description");
+            // checks time before determining class
+            console.log(h);
+            console.log(time);
+            if (h < time) {$newTextArea.attr("class", "col-10 description past");}
+            else if (h === time) {$newTextArea.attr("class", "col-10 description present");}
+            else {$newTextArea.attr("class", "col-10 description future");}
+            // writes the textarea with correctly time-coded class 
             $newRow.append($newTextArea);
 
             // creates 9 size-1 columns with save buttons inside parent row
@@ -54,7 +60,7 @@ $(document).ready(function () {
         }
     }
 
-    createTimeBlocks();
+    createTimeBlocks(fixedTime);
 
 });
 
