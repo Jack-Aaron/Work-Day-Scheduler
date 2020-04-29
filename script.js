@@ -21,16 +21,7 @@ $(document).ready(function () {
     console.log(falseTime);
 
     function createTimeBlocks() {
-        var timeBlockText = ["9AM",
-        "10AM",
-        "11AM",
-        "12PM",
-        "1PM",
-        "2PM",
-        "3PM",
-        "4PM",
-        "5PM"]
-        for (let h = 0; h < 9; h++) {
+        for (let h = 9; h < 18; h++) {
             // creates 9 rows inside parent container
             var $newRow = $("<div>");
             $newRow.attr("class", "row time-block")
@@ -40,7 +31,15 @@ $(document).ready(function () {
             // creates 9 size-1 columns showing the hour inside parent row
             var $newHour = $("<div>");
             $newHour.attr("class", "col-1 hour");
-            $newHour.text(timeBlockText[h]);
+            // AM or PM?
+           /* var meridiem = "PM";
+            if (h < 12) {
+                var meridiem = "AM";
+                $newHour.text(h + meridiem);
+            }
+            else if (h = 12) { $newHour.text(h + meridiem); }
+            else if (h > 12) { $newHour.text((h - 12) + meridiem); } */
+            
             $newRow.append($newHour);
 
             // creates 9 textareas inside parent row
