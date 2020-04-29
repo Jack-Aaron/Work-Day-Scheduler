@@ -32,13 +32,11 @@ $(document).ready(function () {
             var $newHour = $("<div>");
             $newHour.attr("class", "col-1 hour");
             // AM or PM?
-           /* var meridiem = "PM";
-            if (h < 12) {
-                var meridiem = "AM";
-                $newHour.text(h + meridiem);
-            }
-            else if (h = 12) { $newHour.text(h + meridiem); }
-            else if (h > 12) { $newHour.text((h - 12) + meridiem); } */
+            var meridiem = "PM";
+            $newHour.text(h + meridiem);
+            if (h < 12) {meridiem = "AM";}
+            else if (h > 12) {$newHour.text((h - 12) + meridiem);}
+            
             
             $newRow.append($newHour);
 
