@@ -19,6 +19,19 @@ $(document).ready(function () {
     // creates a FALSE but MOVING time which I can use to test the app
     var falseTime = moment().subtract(6, 'hours').format('HH')
     console.log(falseTime);
+
+    function createTimeBlocks() {
+        for (let h = 9; h < 18; h++) {
+            var $newRow = $("<div>");
+            $newRow.attr("class", "row time-block")
+           // $newRow.attr("data-hour", h);
+            $(".container").append($newRow);
+
+        }
+    }
+
+    createTimeBlocks();
+
 });
 
   /*  function checkTime(time) {
