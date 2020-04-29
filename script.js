@@ -40,9 +40,18 @@ $(document).ready(function () {
             // creates 9 size-1 columns showing the hour inside parent row
             var $newHour = $("<div>");
             $newHour.attr("class", "col-1 hour");
-            
             $newHour.text(timeBlockText[h]);
             $newRow.append($newHour);
+
+            // creates 9 textareas inside parent row
+            var $newTextArea = $("<textarea>");
+            $newTextArea.attr("class", "col-10 description");
+            $newRow.append($newTextArea);
+
+            // creates 9 size-1 columns with save buttons inside parent row
+            var $newSaveButton = $("<div>");
+            $newSaveButton.attr("class", "col-1 saveBtn");
+            $newRow.append($newSaveButton);
 
 
         }
