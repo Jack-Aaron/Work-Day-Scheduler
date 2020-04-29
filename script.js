@@ -8,7 +8,7 @@ $(document).ready(function () {
     day.append(today);
 
     // takes the current time, which is what the app will run off of
-    var currentTime = moment().format('HH'); 
+    var currentTime = moment().format('HH');
     console.log(currentTime);
 
     // creates a FIXED time which I can use to build the app
@@ -21,10 +21,18 @@ $(document).ready(function () {
 
     function checkTime(time) {
         var nineAM = $("#9");
+        var getBlockHours = [];
+        for (let t = 0; t < 9; t++) {
+            var checkBlockHour = document.body.children[1].children[t].children[1].id;
+            console.log(checkBlockHour);
+            getBlockHours.push(checkBlockHour);
+        }
 
-        var getBlockHours = document.body.children[1].children[0].children[1].id;
-        nineAM.attr("class","col-10 description present");
-        console.log(getBlockHours);
+        
+
+
+        nineAM.attr("class", "col-10 description present");
+     //   console.log(getBlockHours);
 
     }
 
