@@ -66,8 +66,11 @@ $(document).ready(function () {
 
     createTimeBlocks(fixedTime);
 
-    $("i").on("click", function() {
-        alert("I've been clicked!");
+    $("i").on("click", function(event) {
+        var $getText = $("event.target.textarea.value");
+        this.value = "";
+      //  var storedText = $getText.value;
+        localStorage.setItem("getText", JSON.stringify($getText));
       });
 
 });
