@@ -66,7 +66,8 @@ $(document).ready(function () {
 
     createTimeBlocks(fixedTime);
 
-    var $saveButton = $("i");
-    console.log($saveButton);
+    $("i").on("click", function() {
+        alert("I've been clicked!");
+      });
 
 });
