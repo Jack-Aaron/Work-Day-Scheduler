@@ -67,7 +67,7 @@ $(document).ready(function () {
     createTimeBlocks(fixedTime);
 
     $("i").on("click", function(event) {
-        var getPlans = event.target.parentElement.parentElement;
+        var getPlans = event.target.parentElement.parentElement.children[1].value;
         //var index = element.parentElement.getAttribute("data-index");
        
         console.log(getPlans);
