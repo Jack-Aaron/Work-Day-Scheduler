@@ -66,16 +66,27 @@ $(document).ready(function () {
 
     createTimeBlocks(fixedTime);
 
+    function renderLastRegistered(); {
+
+        var savedPlans = JSON.parse(localStorage.getItem("plans"));
+        if (savedPlans === null) {
+            return;
+        }
+
+        userPlans.textContent = savedPlans[0];
+
     $("i").on("click", function(event) {
+
+       
+
         var getPlans = event.target.parentElement.parentElement.children[1].value;
-        //var index = element.parentElement.getAttribute("data-index");
+       
        
         console.log(getPlans);
 
 
-
-      //  var storedText = $getText.value;
-      //  localStorage.setItem("getText", JSON.stringify($getText));
       });
+
+    }
 
 });
