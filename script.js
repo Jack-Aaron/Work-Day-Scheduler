@@ -67,9 +67,10 @@ $(document).ready(function () {
     createTimeBlocks(fixedTime);
 
     $("i").on("click", function(event) {
-        var $getPlans = $("textarea").val().trim();
+        var getPlans = event.target.parentElement.parentElement;
+        //var index = element.parentElement.getAttribute("data-index");
        
-        console.log($getPlans);
+        console.log(getPlans);
 
 
 
