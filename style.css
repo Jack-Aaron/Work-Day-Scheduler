@@ -19,7 +19,6 @@ textarea{
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
-  height: 20vh; /** new **/
 }
 
 .description{
@@ -33,7 +32,7 @@ textarea{
 
 /** new CSS for save icon **/
 i {
-  margin-top: 1.5vh;
+  margin-top: 0.33em;
   font-size: 3em;
 }
 

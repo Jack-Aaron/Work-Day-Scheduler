@@ -32,7 +32,7 @@ $(document).ready(function () {
 
             // creates 9 size-1 columns showing the hour inside parent row
             var $newHour = $("<div>");
-            $newHour.attr("class", "col-1 hour");
+            $newHour.attr("class", "col-2 col-lg-1 hour");
             // AM or PM?
             var meridiem = "PM";
             $newHour.text(h + meridiem);
@@ -47,15 +47,15 @@ $(document).ready(function () {
             // checks time before determining class
             console.log(h);
             console.log(time);
-            if (h < time) {$newTextArea.attr("class", "col-10 description past");}
-            else if (h === time) {$newTextArea.attr("class", "col-10 description present");}
-            else {$newTextArea.attr("class", "col-10 description future");}
+            if (h < time) {$newTextArea.attr("class", "col-7 col-lg-10 description past");}
+            else if (h === time) {$newTextArea.attr("class", "col-7 col-lg-10 description present");}
+            else {$newTextArea.attr("class", "col-7 col-lg-10 description future");}
             // writes the textarea with correctly time-coded class 
             $newRow.append($newTextArea);
 
             // creates 9 size-1 columns with save buttons inside parent row
             var $newSaveButton = $("<div>");
-            $newSaveButton.attr("class", "col-1 saveBtn");
+            $newSaveButton.attr("class", "col-3 col-lg-1 saveBtn");
             $newRow.append($newSaveButton);
 
             // creates "save" icons within each save button column
