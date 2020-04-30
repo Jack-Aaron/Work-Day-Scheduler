@@ -79,7 +79,7 @@ $(document).ready(function () {
         var $savedPlans = $("textarea");
     }
 
-    $("i").on("click", function (event) {
+    $(".saveBtn").on("click", function (event) {
         var plans = [event.target.parentElement.parentElement.children[1].value, event.target.parentElement.parentElement.children[1].id];
         console.log(plans);
         localStorage.setItem("plans", JSON.stringify(plans));
