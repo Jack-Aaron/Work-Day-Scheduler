@@ -1,33 +1,33 @@
 $(document).ready(function () {
 
     // getting HTML locations
-    var day = $("#currentDay");
+    var $day = $("#currentDay");
     // getting today's date from Moments.js
     var today = moment().format('dddd, MMMM Do');
     // insert the day in above format into HTML
-    day.append(today);
+    $day.append(today);
+
+    // load saved plans
+    renderLastRegistered();
 
     // takes the current time, which is what the app will run off of
     var currentTime = moment().format('HH');
     currentTime = parseInt(currentTime);
-    console.log(currentTime);
 
     // creates a FIXED time which I can use to build the app
     var fixedTime = moment('13', 'HH');
     fixedTime = parseInt(fixedTime._i);
-    console.log(fixedTime);
 
     // creates a FALSE but MOVING time which I can use to test the app
     var falseTime = moment().subtract(6, 'hours').format('HH')
     falseTime = parseInt(falseTime);
-    console.log(falseTime);
 
     function createTimeBlocks(time) {
         for (let h = 9; h < 18; h++) {
             // creates 9 rows inside parent container
             var $newRow = $("<div>");
             $newRow.attr("class", "row time-block")
-           // $newRow.attr("data-hour", h);
+            // $newRow.attr("data-hour", h);
             $(".container").append($newRow);
 
             // creates 9 size-1 columns showing the hour inside parent row
@@ -36,19 +36,17 @@ $(document).ready(function () {
             // AM or PM?
             var meridiem = "PM";
             $newHour.text(h + meridiem);
-            if (h < 12) {meridiem = "AM";}
-            else if (h > 12) {$newHour.text((h - 12) + meridiem);}
+            if (h < 12) { meridiem = "AM"; }
+            else if (h > 12) { $newHour.text((h - 12) + meridiem); }
             // append this div
             $newRow.append($newHour);
 
             // creates 9 textareas inside parent row
             var $newTextArea = $("<textarea>");
             // checks time before determining class
-            console.log(h);
-            console.log(time);
-            if (h < time) {$newTextArea.attr("class", "col-7 col-lg-10 description past");}
-            else if (h === time) {$newTextArea.attr("class", "col-7 col-lg-10 description present");}
-            else {$newTextArea.attr("class", "col-7 col-lg-10 description future");}
+            if (h < time) { $newTextArea.attr("class", "col-7 col-lg-10 description past"); }
+            else if (h === time) { $newTextArea.attr("class", "col-7 col-lg-10 description present"); }
+            else { $newTextArea.attr("class", "col-7 col-lg-10 description future"); }
             // writes the textarea with correctly time-coded class 
             $newRow.append($newTextArea);
 
@@ -68,30 +66,22 @@ $(document).ready(function () {
 
     function renderLastRegistered() {
 
+
+        
+
         var savedPlans = JSON.parse(localStorage.getItem("plans"));
         if (savedPlans === null) {
             return;
         }
 
-        plans.textContent = savedPlans[0];
+        var $plans = $("textarea");
+        $plans.textContent = savedPlans;
     }
 
-    $("i").on("click", function(event) {
-
-       
-
+    $("i").on("click", function (event) {
         var plans = event.target.parentElement.parentElement.children[1].value;
-       
-       
         console.log(plans);
-        
         localStorage.setItem("plans", JSON.stringify(plans));
-
         renderLastRegistered()
-
-
-      });
-
-
-
+    });
 });
