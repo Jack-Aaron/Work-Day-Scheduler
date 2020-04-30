@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // getting HTML location
+    // getting HTML locations
     var day = $("#currentDay");
     // getting today's date from Moments.js
     var today = moment().format('dddd, MMMM Do');
@@ -38,8 +38,7 @@ $(document).ready(function () {
             $newHour.text(h + meridiem);
             if (h < 12) {meridiem = "AM";}
             else if (h > 12) {$newHour.text((h - 12) + meridiem);}
-            
-            
+            // append this div
             $newRow.append($newHour);
 
             // creates 9 textareas inside parent row
@@ -62,42 +61,12 @@ $(document).ready(function () {
             var $addSaveIcon = $("<i>");
             $addSaveIcon.attr("class", "fas fa-save");
             $newSaveButton.append($addSaveIcon);
-
-
         }
     }
 
     createTimeBlocks(fixedTime);
 
+    var $saveButton = $("i");
+    console.log($saveButton);
+
 });
-
-  /*  function checkTime(time) {
-     //   var nineAM = $("#9");
-      //  var getBlockHours = [];
-        for (let t = 0; t < 9; t++) {
-            var checkBlockHour = document.body.children[1].children[t].children[1].id;
-            console.log(checkBlockHour);
-            console.log(checkBlockHour < time);
-         //   getBlockHours.push(checkBlockHour);
-           if (checkBlockHour < time /* <--CHANGE THIS!  ) {
-              getBlockHours[t].attr("class", "col-10 description past");
-        //    }
-     //   else {getBlockHours[t].attr("class", "col-10 description present")}
-
-
-         //   console.log(checkBlockHour);
-          //  getBlockHours.push(checkBlockHour);
-        }
-
-        
-
-
-    //    nineAM.attr("class", "col-10 description present");
-     //   console.log(getBlockHours);
-
-    }
-
-    checkTime(currentTime);
-
-
-*/
