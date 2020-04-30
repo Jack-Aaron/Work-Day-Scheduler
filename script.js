@@ -9,6 +9,7 @@ $(document).ready(function () {
 
     // takes the current time, which is what the app will run off of
     var currentTime = moment().format('HH');
+    currentTime = parseInt(currentTime);
     console.log(currentTime);
 
     // creates a FIXED time which I can use to build the app
@@ -18,6 +19,7 @@ $(document).ready(function () {
 
     // creates a FALSE but MOVING time which I can use to test the app
     var falseTime = moment().subtract(6, 'hours').format('HH')
+    falseTime = parseInt(falseTime);
     console.log(falseTime);
 
     function createTimeBlocks(time) {
@@ -26,7 +28,7 @@ $(document).ready(function () {
             var $newRow = $("<div>");
             $newRow.attr("class", "row time-block")
            // $newRow.attr("data-hour", h);
-            $(".container").append($newRow);
+            $("#timeblocks").append($newRow);
 
             // creates 9 size-1 columns showing the hour inside parent row
             var $newHour = $("<div>");
@@ -55,6 +57,11 @@ $(document).ready(function () {
             var $newSaveButton = $("<div>");
             $newSaveButton.attr("class", "col-1 saveBtn");
             $newRow.append($newSaveButton);
+
+            // creates "save" icons within each save button column
+            var $addSaveIcon = $("<i>");
+            $addSaveIcon.attr("class", "fas fa-save");
+            $newSaveButton.append($addSaveIcon);
 
 
         }
