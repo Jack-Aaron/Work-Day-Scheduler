@@ -66,27 +66,32 @@ $(document).ready(function () {
 
     createTimeBlocks(fixedTime);
 
-    function renderLastRegistered(); {
+    function renderLastRegistered() {
 
         var savedPlans = JSON.parse(localStorage.getItem("plans"));
         if (savedPlans === null) {
             return;
         }
 
-        userPlans.textContent = savedPlans[0];
+        plans.textContent = savedPlans[0];
+    }
 
     $("i").on("click", function(event) {
 
        
 
-        var getPlans = event.target.parentElement.parentElement.children[1].value;
+        var plans = event.target.parentElement.parentElement.children[1].value;
        
        
-        console.log(getPlans);
+        console.log(plans);
+        
+        localStorage.setItem("plans", JSON.stringify(plans));
+
+        renderLastRegistered()
 
 
       });
 
-    }
+
 
 });
