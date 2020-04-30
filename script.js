@@ -47,6 +47,8 @@ $(document).ready(function () {
             if (h < time) { $newTextArea.attr("class", "col-7 col-lg-10 description past"); }
             else if (h === time) { $newTextArea.attr("class", "col-7 col-lg-10 description present"); }
             else { $newTextArea.attr("class", "col-7 col-lg-10 description future"); }
+            // adds an ID of "h"
+            $newTextArea.attr("id", h)
             // writes the textarea with correctly time-coded class 
             $newRow.append($newTextArea);
 
@@ -74,12 +76,11 @@ $(document).ready(function () {
             return;
         }
 
-        var $plans = $("textarea");
-        $plans.textContent = savedPlans;
+        var $savedPlans = $("textarea");
     }
 
     $("i").on("click", function (event) {
-        var plans = event.target.parentElement.parentElement.children[1].value;
+        var plans = [event.target.parentElement.parentElement.children[1].value, event.target.parentElement.parentElement.children[1].id];
         console.log(plans);
         localStorage.setItem("plans", JSON.stringify(plans));
         renderLastRegistered()
