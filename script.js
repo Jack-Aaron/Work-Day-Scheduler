@@ -67,10 +67,14 @@ $(document).ready(function () {
     createTimeBlocks(fixedTime);
 
     $("i").on("click", function(event) {
-        var $getText = $("event.target.textarea.value");
-        this.value = "";
+        var $getPlans = $("textarea").val().trim();
+       
+        console.log($getPlans);
+
+
+
       //  var storedText = $getText.value;
-        localStorage.setItem("getText", JSON.stringify($getText));
+      //  localStorage.setItem("getText", JSON.stringify($getText));
       });
 
 });
