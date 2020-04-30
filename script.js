@@ -28,7 +28,7 @@ $(document).ready(function () {
             var $newRow = $("<div>");
             $newRow.attr("class", "row time-block")
            // $newRow.attr("data-hour", h);
-            $("#timeblocks").append($newRow);
+            $(".container").append($newRow);
 
             // creates 9 size-1 columns showing the hour inside parent row
             var $newHour = $("<div>");

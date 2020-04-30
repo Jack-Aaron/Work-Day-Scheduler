@@ -19,6 +19,7 @@ textarea{
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  height: 20vh; /** new **/
 }
 
 .description{
@@ -30,11 +31,13 @@ textarea{
   border-radius: 15px;
 }
 
-/** new CSS **/
+/** new CSS for save icon **/
 i {
   margin-top: 1.5vh;
   font-size: 3em;
 }
+
+/** **/
 
 .row {
   white-space: pre-wrap;
@@ -74,8 +77,4 @@ i {
 .saveBtn i:hover {
   color: black;
   transition: all .3s ease-in-out;
-}
-
-footer {
-  padding-bottom: 2rem;
 }
