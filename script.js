@@ -77,15 +77,17 @@ $(document).ready(function () {
         }
 
         for (let i = 0; i < savedPlans.length; i++) {
-            
+            var 
         }
 
     }
 
     $(".saveBtn").on("click", function (event) {
         //  var hour = $(this).parent
-        var plans = [event.target.parentElement.parentElement.children[1].value,
-        event.target.parentElement.parentElement.children[1].id];
+        var plans = [event.target.parentElement.parentElement.children[1].id,
+        event.target.parentElement.parentElement.children[1].value];
+
+
 
 
         console.log(plans);
