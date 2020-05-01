@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    var plans = []; // blank for now, later will get from local storage
-
     // getting HTML locations
     var $day = $("#currentDay");
     // getting today's date from Moments.js
@@ -8,8 +6,8 @@ $(document).ready(function () {
     // insert the day in above format into HTML
     $day.append(today);
 
-    // load saved plans
-    renderLastRegistered();
+    // load stored plans
+    plans = JSON.parse(localStorage.getItem("plans"));
 
     // takes the current time, which is what the app will run off of
     var currentTime = moment().format('HH');
@@ -45,9 +43,9 @@ $(document).ready(function () {
             // creates 9 textareas inside parent row
             var $newTextArea = $("<textarea>");
             // give it text??
-           if (plans !== null) {
-              $newTextArea.text(plans[h-9]);
-        }
+            if (plans !== null) {
+                $newTextArea.text(plans[h - 9]);
+            }
 
             // checks time before determining class
             if (h < time) { $newTextArea.attr("class", "col-7 col-lg-10 description past"); }
@@ -70,35 +68,15 @@ $(document).ready(function () {
         }
     }
 
-    createTimeBlocks(fixedTime);
-
-    function renderLastRegistered() {
+    createTimeBlocks(currentTime);
 
 
-
-
-        plans = JSON.parse(localStorage.getItem("plans"));
-        if (plans === null) {
-            return;
-        }
-
-       // console.log(savedPlans);
-        //  for (let i = 0; i < savedPlans.length; i++) {
-        ////      var getPlan = savedPlans[i]
-        // }
-
-
-
-    }
 
     $(".saveBtn").on("click", function (event) {
-
         var slot = parseInt(event.target.parentElement.parentElement.children[1].id - 9);
         plans[slot] = event.target.parentElement.parentElement.children[1].value;
-
-   
         console.log(plans);
         localStorage.setItem("plans", JSON.stringify(plans));
-       // renderLastRegistered()
+
     });
 });
