@@ -69,27 +69,18 @@ $(document).ready(function () {
     function renderLastRegistered() {
 
 
-
+        
 
         var savedPlans = JSON.parse(localStorage.getItem("plans"));
         if (savedPlans === null) {
             return;
         }
 
-        for (let i = 0; i < savedPlans.length; i++) {
-            var 
-        }
-
+        var $savedPlans = $("textarea");
     }
 
     $(".saveBtn").on("click", function (event) {
-        //  var hour = $(this).parent
-        var plans = [event.target.parentElement.parentElement.children[1].id,
-        event.target.parentElement.parentElement.children[1].value];
-
-
-
-
+        var plans = [event.target.parentElement.parentElement.children[1].id, event.target.parentElement.parentElement.children[1].value];
         console.log(plans);
         localStorage.setItem("plans", JSON.stringify(plans));
         renderLastRegistered()
