@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var plans = []; // blank for now, later will get from local storage
+
 
     // getting HTML locations
     var $day = $("#currentDay");
@@ -35,14 +37,16 @@ $(document).ready(function () {
             $newHour.attr("class", "col-2 col-lg-1 hour");
             // AM or PM?
             var meridiem = "PM";
+            if (h < 12) { meridiem = "AM";}
             $newHour.text(h + meridiem);
-            if (h < 12) { meridiem = "AM"; }
-            else if (h > 12) { $newHour.text((h - 12) + meridiem); }
+            if (h > 12) { $newHour.text((h - 12) + meridiem); }
             // append this div
             $newRow.append($newHour);
 
             // creates 9 textareas inside parent row
             var $newTextArea = $("<textarea>");
+                // give it text??
+                  //$newTextArea.text = savedPlans[h-9];
             // checks time before determining class
             if (h < time) { $newTextArea.attr("class", "col-7 col-lg-10 description past"); }
             else if (h === time) { $newTextArea.attr("class", "col-7 col-lg-10 description present"); }
@@ -71,16 +75,26 @@ $(document).ready(function () {
 
         
 
-        var savedPlans = JSON.parse(localStorage.getItem("plans"));
+        savedPlans = JSON.parse(localStorage.getItem("plans"));
         if (savedPlans === null) {
             return;
         }
 
-        var $savedPlans = $("textarea");
+        console.log(savedPlans);
+      //  for (let i = 0; i < savedPlans.length; i++) {
+      ////      var getPlan = savedPlans[i]
+      // }
+
+
+       
     }
 
     $(".saveBtn").on("click", function (event) {
-        var plans = [event.target.parentElement.parentElement.children[1].id, event.target.parentElement.parentElement.children[1].value];
+        
+        var thisPlans = [event.target.parentElement.parentElement.children[1].id,
+        event.target.parentElement.parentElement.children[1].value];
+
+        plans.push(thisPlans);
         console.log(plans);
         localStorage.setItem("plans", JSON.stringify(plans));
         renderLastRegistered()
